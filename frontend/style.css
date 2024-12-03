@@ -1,37 +1,152 @@
+/* Global CSS Variables for Light and Dark Mode */
+:root {
+    --background-light: #f4f7fa;
+    --background-dark: #181818;
+    --primary-light: #007bff;
+    --primary-dark: #1a73e8;
+    --text-light: #333;
+    --text-dark: #e5e5e5;
+    --input-background-light: #fff;
+    --input-background-dark: #333;
+    --input-border-light: #ddd;
+    --input-border-dark: #444;
+    --button-background-light: #007bff;
+    --button-background-dark: #1a73e8;
+    --button-hover-light: #0056b3;
+    --button-hover-dark: #155a8a;
+}
+
+/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-}
-
-.container {
-    text-align: center;
-    background: #ffffff;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-form label, form input, button {
-    margin: 10px 0;
-    display: block;
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--input-background-light); /* Default light background for form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-light);
+}
+
+/* Form Styling */
+form {
+    display: grid;
+    grid-gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-light); /* Default label color for light mode */
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--input-border-light); /* Default light mode border */
+    border-radius: 5px;
+    background-color: var(--input-background-light); /* Default light background for inputs */
+    color: var(--text-light);
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border: 1px solid var(--primary-light);
+    outline: none;
 }
 
 button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #ffffff;
+    padding: 10px 20px;
+    background-color: var(--button-background-light); /* Default button background for light mode */
+    color: white;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-light);
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.container.dark-mode {
+    background-color: var(--input-background-dark); /* Dark background for the form */
+}
+
+h1.dark-mode {
+    color: var(--primary-dark);
+}
+
+label.dark-mode {
+    color: var(--text-dark); /* Dark label color */
+}
+
+input[type="number"].dark-mode {
+    background-color: var(--input-background-dark); /* Dark background for inputs */
+    color: var(--text-dark);
+    border: 1px solid var(--input-border-dark); /* Dark border */
+}
+
+button.dark-mode {
+    background-color: var(--button-background-dark); /* Dark button background */
+}
+
+button.dark-mode:hover {
+    background-color: var(--button-hover-dark);
+}
+
+#result.dark-mode {
+    color: var(--text-dark);
+}
+
+/* Result Text */
+#result {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input[type="number"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
